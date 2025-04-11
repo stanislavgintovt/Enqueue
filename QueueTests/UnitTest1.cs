@@ -11,7 +11,7 @@ public class Tests
     }
 
     [Test]
-    public void EqualPriorityTest()
+    public void EqualPriorityTest() // тест на корректность работы элементов с одинаковым приоритетом
     {
         queue.Enqueue(1, 1);
         queue.Enqueue(2, 1);
@@ -25,7 +25,7 @@ public class Tests
         Assert.That(x[0] == 1 & x[1] == 2 & x[2] == 3);
     }
 
-    public void CorrectPriorityTest()
+    public void CorrectPriorityTest()   // тест на корректность работы системы приоритетов
     {
         queue.Enqueue(1, 1);
         queue.Enqueue(2, 5);

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace Enqueue
 {
     public class Queue
-    {
-        public bool Empty 
+    {           // реализовано в виде двусвязного сортированного списка
+        public bool Empty
         {
             get => (head == null);
         }
@@ -36,7 +36,7 @@ namespace Enqueue
         Node? head = null;
         Node? tail = null;
 
-        public void Enqueue(int data, int priority)
+        public void Enqueue(int data, int priority) // добавление
         {
             if (head == null)
             {
@@ -77,9 +77,9 @@ namespace Enqueue
             current.prev = res;
             return;
         }
-        public int Dequeue()
+        public int Dequeue() // удаление
         {
-            if (tail == null)
+            if (tail == null)  // по хорошему надо либо вместе со значением возвращать бул успеха либо бросать эксепшион
             {
                 Console.WriteLine("Error");
                 return 0;

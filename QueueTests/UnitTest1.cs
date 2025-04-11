@@ -1,15 +1,41 @@
-﻿namespace QueueTests;
+﻿using Enqueue;
+
+namespace QueueTests;
 
 public class Tests
 {
+    Queue queue = new();
     [SetUp]
     public void Setup()
     {
     }
 
     [Test]
-    public void Test1()
+    public void EqualPriorityTest()
     {
-        Assert.Pass();
+        queue.Enqueue(1, 1);
+        queue.Enqueue(2, 1);
+        queue.Enqueue(3, 1);
+
+        int[] x = new int[3];
+        for (int i = 0; i < 3; i++)
+        {
+            x[i] = queue.Dequeue();
+        }
+        Assert.That(x[0] == 1 & x[1] == 2 & x[2] == 3);
+    }
+
+    public void CorrectPriorityTest()
+    {
+        queue.Enqueue(1, 1);
+        queue.Enqueue(2, 5);
+        queue.Enqueue(3, 3);
+
+        int[] x = new int[3];
+        for (int i = 0; i < 3; i++)
+        {
+            x[i] = queue.Dequeue();
+        }
+        Assert.That(x[0] == 2 & x[1] == 1 & x[2] == 3);
     }
 }
